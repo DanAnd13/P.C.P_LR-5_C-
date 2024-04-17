@@ -68,10 +68,14 @@ long long part_min(int start_index, int finish_index_x, int finish_index_y, int 
 		for (int j = start_index; j < finish_index_y; j++) {
 			part_sum += arr[i][j];
 		}
+		if (min > part_sum) 
+		{
 #pragma omp critical
-		if (min > part_sum) {
-			min = part_sum;
-			index = i;
+			if (min > part_sum) 
+			{
+				min = part_sum;
+				index = i;
+			}
 		}
 	}
 	double t2 = omp_get_wtime();
